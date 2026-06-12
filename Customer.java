@@ -1,4 +1,4 @@
-public class Customer {
+public abstract class Customer {
     private int customerId;
     private String name;
     private String email;
@@ -65,4 +65,15 @@ public class Customer {
 
         return out;
     }
+
+    // Method
+    
+    /**
+     * abstract:
+     * 
+     * Ticket price calculation varies depending on the customer type,
+     * so each subclass must provide its own implementation.
+     * @return
+     */
+    public abstract double calculateTicketPrice();
 }
