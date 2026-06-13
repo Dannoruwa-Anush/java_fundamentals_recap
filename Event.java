@@ -1,0 +1,65 @@
+public class Event {
+    
+    private int eventId;
+    private String name;
+    private double ticketPrice;
+    private int noAvailableSeats;
+
+    // no arg constructor
+    public Event(){
+
+    }
+
+    // all arg constrctor
+    public Event(int eventId, String name, double ticketPrice, int noAvailableSeats){
+        setEventId(eventId);
+        setName(name);
+        setTicketPrice(ticketPrice);
+        setNoAvailableSeats(noAvailableSeats);
+    }
+
+    // getters & setters
+    public int getEventId(){
+        return this.eventId;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public double getTicketPrice(){
+        return this.ticketPrice;
+    }
+
+    public int getNoAvailableSeats(){
+        return this.noAvailableSeats;
+    }
+
+    private void setEventId(int eventId){
+        this.eventId = eventId;
+    }
+
+    private void setName(String name){
+        this.name = name;
+    }
+    private void setTicketPrice(double ticketPrice){
+        this.ticketPrice = ticketPrice;
+    }
+
+    private void setNoAvailableSeats(int noAvailableSeats){
+        this.noAvailableSeats = noAvailableSeats;
+    }
+
+    // toString()
+    @Override
+    public String toString(){
+        String out = "";
+
+        out += " Event ID: " + eventId;
+        out += ", Name : " + name;
+        out += ", Ticket Price (Rs.) : " + ticketPrice;
+        out += ", No. Available Seats : " + noAvailableSeats;
+
+        return out;
+    }
+}
