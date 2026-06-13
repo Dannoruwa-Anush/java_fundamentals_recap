@@ -12,16 +12,15 @@ public class VIPCustomer extends Customer{
     public String toString() {
         String out = "";
         out += " Customer ID: " + super.getCustomerId();
-        out += " VIP Customer Name : " + super.getName();
-        out += " VIP Customer Email : " + super.getEmail();
+        out += ", VIP Customer Name : " + super.getName();
+        out += ", VIP Customer Email : " + super.getEmail();
+        out += ", Ticket Discount : " + DISCOUNT;
 
         return out;
     }
 
     @Override
-    public double calculateTicketPrice() {
-        // 120 for testing : event. ticketPrice
-        return 120 * DISCOUNT;
-    }
-    
+    public double getDiscount() {
+        return DISCOUNT;
+    } 
 }

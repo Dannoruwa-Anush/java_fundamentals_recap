@@ -60,20 +60,25 @@ public abstract class Customer {
     public String toString() {
         String out = "";
         out += " Customer ID: " + customerId;
-        out += " Name : " + name;
-        out += " Email : " + email;
+        out += ", Name : " + name;
+        out += ", Email : " + email;
 
         return out;
     }
 
     // Method
-    
+    // Ticket price calculation
+    public double calculateTicketPrice() {
+        // 120 for testing : event. ticketPrice
+        return 120 * getDiscount();
+    }
+
     /**
      * abstract:
      * 
-     * Ticket price calculation varies depending on the customer type,
+     * Discount for ticket price varies depending on the customer type,
      * so each subclass must provide its own implementation.
      * @return
      */
-    public abstract double calculateTicketPrice();
+    public abstract double getDiscount();
 }
