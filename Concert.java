@@ -18,7 +18,10 @@ public class Concert extends Event{
     }
 
     public void setArtistName(String artistName){
-        this.artistName = artistName;
+        if (artistName == null || artistName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Artist name cannot be null or empty");
+        }
+        this.artistName = artistName.trim();
     }
 
     // toString()

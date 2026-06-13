@@ -18,6 +18,10 @@ public class Workshop extends Event{
     }
 
     public void setTrainerName(String trainerName){
+        if (trainerName == null || trainerName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Trainer name cannot be null or empty");
+        }
+
         this.trainerName = trainerName;
     }
 
