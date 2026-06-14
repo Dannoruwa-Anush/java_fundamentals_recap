@@ -42,27 +42,42 @@ public class Booking {
         return this.bookingStatus;
     }
 
-    public void setBookingId(int bookingId){
+    public void setBookingId(int bookingId) {
+        if (bookingId <= 0) {
+            throw new IllegalArgumentException("Booking ID must be greater than 0");
+        }
         this.bookingId = bookingId;
     }
 
-    public void setCustomer(Customer customer){
+    public void setCustomer(Customer customer) {
+        if (customer == null) {
+            throw new IllegalArgumentException("Customer cannot be null");
+        }
         this.customer = customer;
     }
-    
-    public void setEvent(Event event){
+
+    public void setEvent(Event event) {
+        if (event == null) {
+            throw new IllegalArgumentException("Event cannot be null");
+        }
         this.event = event;
     }
 
-    public void setNoTickets(int noTickets){
+    public void setNoTickets(int noTickets) {
+        if (noTickets <= 0) {
+            throw new IllegalArgumentException("Number of tickets must be greater than 0");
+        }
         this.noTickets = noTickets;
     }
 
-    public void setBookingStatus(BookingStatusEnum bookingStatus){
+    public void setBookingStatus(BookingStatusEnum bookingStatus) {
+        if (bookingStatus == null) {
+            throw new IllegalArgumentException("Booking status cannot be null");
+        }
         this.bookingStatus = bookingStatus;
     }
 
-        // toString()
+    // toString()
     @Override
     public String toString() {
         String out = "";
