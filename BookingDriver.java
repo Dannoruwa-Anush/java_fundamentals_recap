@@ -1,14 +1,7 @@
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
-
 import enums.BookingStatusEnum;
 import model.Booking;
 import model.Concert;
-import model.Customer;
-import model.Event;
 import model.RegularCustomer;
 import repository.BookingRepository;
 import repository.CustomerRepository;
