@@ -1,3 +1,4 @@
+package model;
 import enums.BookingStatusEnum;
 
 public class Booking {

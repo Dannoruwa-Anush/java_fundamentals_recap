@@ -1,3 +1,4 @@
+package model;
 public class Event {
 
     private int eventId;

@@ -1,3 +1,4 @@
+package model;
 public class RegularCustomer extends Customer{
 
     private static final double DISCOUNT = 0.0;

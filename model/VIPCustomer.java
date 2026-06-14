@@ -1,3 +1,4 @@
+package model;
 public class VIPCustomer extends Customer{
 
     private static final double DISCOUNT = 0.1;

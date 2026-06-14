@@ -1,38 +1,49 @@
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
 
 import enums.BookingStatusEnum;
-import repository.Repository;
+import model.Booking;
+import model.Concert;
+import model.Customer;
+import model.Event;
+import model.RegularCustomer;
+import repository.BookingRepository;
+import repository.CustomerRepository;
+import repository.EventRepository;
+import repository.IRepository;
 
 public class BookingDriver{
     public static void main (String[] args){
-        Repository<Event> eventRepoRef = new Repository<>();
         
-        Concert concertRef1 = new Concert(1, "Padura", 5000, 1000, "Ridma");
-        eventRepoRef.add(concertRef1);  
-        Concert concertRef2 = new Concert(2, "31st night", 15000, 10, "Jinger");
-        eventRepoRef.add(concertRef2);
+        // Add Event
+        EventRepository eventRepo = new EventRepository();
+        Concert concert1 = new Concert(1, "Padura", 5000, 1000, "Ridma");
+        eventRepo.add(concert1);  
+        Concert concert2 = new Concert(2, "31st night", 15000, 10, "Jinger");
+        eventRepo.add(concert2);
         
-        printRepo(eventRepoRef);
+        printRepo(eventRepo);
 
 
-
-        Repository<RegularCustomer> regularCusRepoRef = new Repository<>();
+        // Add Customer
+        CustomerRepository customerRepo = new CustomerRepository();
+        RegularCustomer regularCus1 = new RegularCustomer(1, "test", "test@gmail.com");
+        regularCus1.calculateTicketPrice(120);
+        customerRepo.add(regularCus1);
         
-        RegularCustomer regularCusRef = new RegularCustomer(1, "test", "test@gmail.com");
-        regularCusRef.calculateTicketPrice(120);
-        regularCusRepoRef.add(regularCusRef);
-        
-        printRepo(regularCusRepoRef);
+        printRepo(customerRepo);
 
-        Repository<Booking> bookingRepoRef = new Repository<>();
-        
-        Booking bookingRef = new Booking(1, regularCusRef, concertRef1, 1, BookingStatusEnum.COMPLETED);
-        bookingRepoRef.add(bookingRef);
-
-        printRepo(bookingRepoRef);
+        // Add Booking
+        BookingRepository bookingRepo = new BookingRepository();
+        Booking booking1 = new Booking(1, regularCus1, concert1, 1, BookingStatusEnum.COMPLETED);
+        bookingRepo.add(booking1);
+        printRepo(bookingRepo);
     }
 
-    public static <T> void printRepo(Repository<T> repo) {
+    public static <T> void printRepo(IRepository<T> repo) {
         Iterator<T> iterator = repo.getAll().iterator();
 
         while (iterator.hasNext()) {

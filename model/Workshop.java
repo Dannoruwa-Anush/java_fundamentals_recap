@@ -1,3 +1,4 @@
+package model;
 public class Workshop extends Event{
     private String trainerName;
 
