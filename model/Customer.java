@@ -70,7 +70,7 @@ public abstract class Customer {
     // Method
     // Ticket price calculation
     public double calculateTicketPrice(double basePrice) {
-        return basePrice * getDiscount();
+        return basePrice * ( 1 - getDiscount() );
     }
 
     /**
