@@ -4,7 +4,7 @@ import model.Booking;
 import model.Event;
 import repository.IRepository;
 
-public class BookingMonitorUtil extends Thread{
+public class BookingMonitorUtil implements Runnable {
     private IRepository<Event> eventRepo;
     private IRepository<Booking> bookingRepo;
 
@@ -16,20 +16,18 @@ public class BookingMonitorUtil extends Thread{
 
     @Override
     public void run() {
-
-        while(true) {
+        
+        while (!Thread.currentThread().isInterrupted()) {
 
             System.out.println("\n===== Booking Monitor =====");
             System.out.println("Available Events : " + eventRepo.getAll().size());
             System.out.println("Active Bookings : " + bookingRepo.getAll().size());
-            System.out.println( "===========================");
+            System.out.println("===========================");
 
             try {
-
                 Thread.sleep(60000);
-
             } catch (InterruptedException e) {
-
+                Thread.currentThread().interrupt(); // restore interrupt flag
                 System.out.println("Monitor Interrupted");
             }
         }

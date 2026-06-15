@@ -27,7 +27,8 @@ public class BookingDriver {
 
         // Booking monitor using threads
         BookingMonitorUtil bookingMonitor = new BookingMonitorUtil(eventRepo, bookingRepo);
-        bookingMonitor.start();
+        Thread t = new Thread(bookingMonitor);
+        t.start();
 
         // Menu
         printMenu(eventRepo, customerRepo, bookingRepo);
