@@ -36,28 +36,28 @@ public class Event {
         return this.noAvailableSeats;
     }
 
-    private void setEventId(int eventId) {
+    public void setEventId(int eventId) {
         if (eventId <= 0) {
             throw new IllegalArgumentException("Event ID must be greater than 0");
         }
         this.eventId = eventId;
     }
 
-    private void setName(String name) {
+    public void setName(String name) {
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Name cannot be null or empty");
         }
         this.name = name.trim();
     }
 
-    private void setTicketPrice(double ticketPrice) {
+    public void setTicketPrice(double ticketPrice) {
         if (ticketPrice < 0) {
             throw new IllegalArgumentException("Ticket price cannot be negative");
         }
         this.ticketPrice = ticketPrice;
     }
 
-    private void setNoAvailableSeats(int noAvailableSeats) {
+    public void setNoAvailableSeats(int noAvailableSeats) {
         if (noAvailableSeats < 0) {
             throw new IllegalArgumentException("Number of available seats cannot be negative");
         }
