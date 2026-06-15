@@ -6,6 +6,7 @@ public class Booking implements IBookable{
     private Customer customer;
     private Event event;
     private int noTickets;
+    private double totalAmount;
     private BookingStatusEnum bookingStatus;
 
     // no arg constructor
@@ -14,11 +15,12 @@ public class Booking implements IBookable{
     }
 
     // constructor
-    public Booking(int bookingId, Customer customer, Event event, int noTickets, BookingStatusEnum bookingStatus){
+    public Booking(int bookingId, Customer customer, Event event, int noTickets, double totalAmount, BookingStatusEnum bookingStatus){
         setBookingId(bookingId);
         setCustomer(customer);
         setEvent(event);
         setNoTickets(noTickets);
+        setTotalAmount(totalAmount);
         setBookingStatus(bookingStatus);
     }
 
@@ -37,6 +39,10 @@ public class Booking implements IBookable{
 
     public int getNoTickets(){
         return this.noTickets;
+    }
+
+    public double getTotalAmount(){
+        return this.totalAmount;
     }
 
     public BookingStatusEnum getBookingStatus(){
@@ -71,6 +77,13 @@ public class Booking implements IBookable{
         this.noTickets = noTickets;
     }
 
+    public void setTotalAmount(double totalAmount){
+        if (totalAmount <= 0) {
+            throw new IllegalArgumentException("Total amount must be greater than 0");
+        }
+        this.totalAmount = totalAmount;
+    }
+
     public void setBookingStatus(BookingStatusEnum bookingStatus) {
         if (bookingStatus == null) {
             throw new IllegalArgumentException("Booking status cannot be null");
@@ -86,6 +99,7 @@ public class Booking implements IBookable{
         out += ", Customer : " + customer.toString();
         out += ", Event : " + event.toString();
         out += ", No Tickets : " + noTickets;
+        out += ", Total Amount (Rs) : " + totalAmount;
         out += ", Booking Status : " + bookingStatus.getDisplayName();
 
         return out;
