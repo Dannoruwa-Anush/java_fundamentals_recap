@@ -1,7 +1,7 @@
 package model;
 import enums.BookingStatusEnum;
 
-public class Booking {
+public class Booking implements IBookable{
     private int bookingId;
     private Customer customer;
     private Event event;
@@ -89,5 +89,27 @@ public class Booking {
         out += ", Booking Status : " + bookingStatus.getDisplayName();
 
         return out;
+    }
+
+    @Override
+    public boolean bookTicket() {
+        bookingStatus = BookingStatusEnum.COMPLETED;
+
+        event.setNoAvailableSeats(event.getNoAvailableSeats() - noTickets);
+
+        System.out.println("Booking completed!");
+
+        return true;
+    }
+
+    @Override
+    public boolean cancelTicket() {
+        bookingStatus = BookingStatusEnum.CANCELLED;
+
+        event.setNoAvailableSeats(event.getNoAvailableSeats() + noTickets);
+
+        System.out.println("Booking cancelled!");
+
+        return true;
     }
 }
