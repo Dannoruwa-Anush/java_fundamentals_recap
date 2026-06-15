@@ -118,8 +118,8 @@ public class BookingDriver {
                         System.out.print("Enter customer Name : ");
                         String customerName  = scanner.next();
 
-                    System.out.print("Enter email : ");
-                    String email = scanner.next();
+                        System.out.print("Enter email : ");
+                        String email = scanner.next();
 
                         // Regular customer
                         if(customerType == 1) {
