@@ -30,6 +30,19 @@ public class BookingRepository implements IRepository<Booking>{
         return bookings;
     }
     
+    @Override
+    public Booking getById(int id) {
+        for(Booking book : getAll()) {
+
+            if(book.getBookingId() == id) {
+                return book;
+            }
+        }
+
+        return null;
+    }
+
+
     // unique methods
 
     public Booking getNextBooking() {

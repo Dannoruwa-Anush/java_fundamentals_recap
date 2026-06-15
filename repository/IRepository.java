@@ -10,4 +10,5 @@ public interface IRepository<T> {
     public abstract void add(T item);
     public abstract void remove (T item);
     public abstract Collection<T> getAll();
+    public abstract T getById(int id);
 }

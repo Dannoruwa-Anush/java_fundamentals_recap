@@ -30,9 +30,8 @@ public class CustomerRepository implements IRepository<Customer>{
         return customers.values();
     }
 
-    // unique methods
-    
-    public Customer findById(int id) {
+    @Override
+    public Customer getById(int id) {
         return customers.get(id);
     }
 }

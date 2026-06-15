@@ -29,4 +29,16 @@ public class EventRepository implements IRepository<Event>{
     public Collection<Event> getAll() {
         return events;
     }
+
+    @Override
+    public Event getById(int id) {
+        for(Event event : getAll()) {
+
+            if(event.getEventId() == id) {
+                return event;
+            }
+        }
+
+        return null;
+    }
 }
